@@ -1,0 +1,24 @@
+import Image from 'next/image';
+import React from 'react'
+import { urlFor } from '../sanity';
+interface Props{
+    product: Product;
+}
+
+function Product({product}: Props) {
+  return (
+    <div className='flex h-fit w-[320px] select-none flex-col space-y-3 rounded-xl p-8 bg-[##f8f8f8cc] md:h-[500px] md:w-[400px] md:p-10'>
+        <div className='relative w-full h-64 md:h-72'>
+            <Image src={urlFor(product.image[0]).url()} layout="fill" objectFit='contain'/>
+        </div>
+        <div>
+            <div>
+                <p>{product.title}</p>
+                <p>{product.price}</p>
+            </div>
+        </div>
+    </div>
+  )
+}
+
+export default Product
